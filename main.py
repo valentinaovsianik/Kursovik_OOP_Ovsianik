@@ -1,7 +1,13 @@
 from src.interaction_with_API import HeadHunterAPI
 from src.interaction_with_files import JSONFileHandler
-from src.utils import get_top_vacancies, print_vacancies, sort_vacancies, get_vacancies_by_salary, filter_vacancies, filter_vacancies_by_city
-
+from src.utils import (
+    filter_vacancies,
+    filter_vacancies_by_city,
+    get_top_vacancies,
+    get_vacancies_by_salary,
+    print_vacancies,
+    sort_vacancies,
+)
 from src.vacancy import Vacancy
 
 
@@ -32,7 +38,6 @@ def user_interaction():
     city_filtered_vacancies = filter_vacancies_by_city(ranged_vacancies, city)
     sorted_vacancies = sort_vacancies(city_filtered_vacancies)
     top_vacancies = get_top_vacancies(sorted_vacancies, top_n)
-
 
     print(f"Топ {top_n} вакансий по запросу '{search_query}' в городе '{city}':")
     print_vacancies(top_vacancies)

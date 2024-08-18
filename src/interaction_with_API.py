@@ -1,6 +1,7 @@
-from abc import ABC, abstractmethod
-import requests
 import json
+from abc import ABC, abstractmethod
+
+import requests
 
 
 class JobAPI(ABC):
@@ -20,6 +21,11 @@ class JobAPI(ABC):
 
 
 class HeadHunterAPI(JobAPI):
+
+    url: str
+    headers: dict
+    params: dict
+
     def __init__(self):
         """Инициализирует параметры для подключения и поиска вакансий с помощью API hh.ru"""
         self.__url = "https://api.hh.ru/vacancies"

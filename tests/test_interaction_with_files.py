@@ -1,7 +1,9 @@
-from src.interaction_with_files import JSONFileHandler
-import pytest
-import os
 import json
+import os
+
+import pytest
+
+from src.interaction_with_files import JSONFileHandler
 
 
 @pytest.fixture
@@ -39,10 +41,7 @@ def test_add_vacancy(temp_file):
 def test_get_vacancies(temp_file):
     """Тестирование метода get_vacancies"""
     handler = JSONFileHandler(filename=temp_file)
-    vacancies = [
-        {"title": "Python Developer", "salary": "100000"},
-        {"title": "Java Developer", "salary": "120000"}
-    ]
+    vacancies = [{"title": "Python Developer", "salary": "100000"}, {"title": "Java Developer", "salary": "120000"}]
 
     for vacancy in vacancies:
         handler.add_vacancy(vacancy)
@@ -63,4 +62,3 @@ def test_delete_vacancy(temp_file):
     with open(temp_file, "r", encoding="utf-8") as file:
         data = json.load(file)
         assert len(data) == 0
-

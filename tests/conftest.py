@@ -1,5 +1,7 @@
 import pytest
+
 from src.vacancy import Vacancy
+
 
 @pytest.fixture
 def valid_vacancy():
@@ -9,8 +11,9 @@ def valid_vacancy():
         url="http://example.com/vacancy",
         salary=100000,
         description="Разработка приложений на Python.",
-        city="Москва"
+        city="Москва",
     )
+
 
 @pytest.fixture
 def invalid_vacancy_title():
@@ -21,8 +24,9 @@ def invalid_vacancy_title():
             url="http://example.com/vacancy",
             salary=100000,
             description="Разработка приложений на Python.",
-            city="Москва"
+            city="Москва",
         )
+
 
 @pytest.fixture
 def invalid_vacancy_url():
@@ -33,8 +37,9 @@ def invalid_vacancy_url():
             url="invalid_url",
             salary=100000,
             description="Разработка приложений на Python.",
-            city="Москва"
+            city="Москва",
         )
+
 
 @pytest.fixture
 def invalid_vacancy_salary():
@@ -44,20 +49,18 @@ def invalid_vacancy_salary():
         url="http://example.com/vacancy",
         salary=-100000,
         description="Разработка приложений на Python.",
-        city="Москва"
+        city="Москва",
     )
+
 
 @pytest.fixture
 def invalid_vacancy_description():
     """Фикстура для создания объекта Vacancy с некорректным описанием"""
     with pytest.raises(ValueError):
         return Vacancy(
-            title="Python Developer",
-            url="http://example.com/vacancy",
-            salary=100000,
-            description=12345,
-            city="Москва"
+            title="Python Developer", url="http://example.com/vacancy", salary=100000, description=12345, city="Москва"
         )
+
 
 @pytest.fixture
 def invalid_vacancy_city():
@@ -68,8 +71,9 @@ def invalid_vacancy_city():
             url="http://example.com/vacancy",
             salary=100000,
             description="Разработка приложений на Python.",
-            city=""
+            city="",
         )
+
 
 @pytest.fixture
 def vacancies():
@@ -80,27 +84,27 @@ def vacancies():
             url="http://example.com/vacancy1",
             salary=100000,
             description="Разработка приложений на Python. Работа с Python.",
-            city="Минск"
+            city="Минск",
         ),
         Vacancy(
             title="Java Developer",
             url="http://example.com/vacancy2",
             salary=120000,
             description="Разработка приложений на Java.",
-            city="Москва"
+            city="Москва",
         ),
         Vacancy(
             title="Специалист по обработке данных",
             url="http://example.com/vacancy3",
             salary=95000,
             description="Анализ данных и построение моделей. Работа специалистом.",
-            city="Саратов"
+            city="Саратов",
         ),
         Vacancy(
             title="Frontend Developer",
             url="http://example.com/vacancy4",
             salary=90000,
             description="Работа над фронтенд-технологиями.",
-            city="Ростов"
-        )
+            city="Ростов",
+        ),
     ]

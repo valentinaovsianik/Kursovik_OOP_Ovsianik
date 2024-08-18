@@ -1,5 +1,7 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from src.interaction_with_API import HeadHunterAPI
 
 
@@ -15,7 +17,7 @@ def test_get_vacancies_success(mock_get):
                 "name": "Python Developer",
                 "url": "https://hh.ru/vacancy/1",
                 "salary": {"from": 100000, "to": 150000},
-                "snippet": {"responsibility": "Developing in Python"}
+                "snippet": {"responsibility": "Developing in Python"},
             }
         ]
     }
@@ -35,9 +37,7 @@ def test_get_vacancies_success(mock_get):
 def test_get_vacancies_no_results(mock_get):
     """Тестируем случай, когда по запросу нет вакансий"""
 
-    mock_response = {
-        "items": []
-    }
+    mock_response = {"items": []}
     mock_get.return_value.status_code = 200
     mock_get.return_value.json.return_value = mock_response
 

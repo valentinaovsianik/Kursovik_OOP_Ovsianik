@@ -5,6 +5,12 @@ from typing import List
 class Vacancy:
     """Класс для работы с вакансиями"""
 
+    title: str
+    url: str
+    salary: float
+    description: str
+    city: str
+
     __slots__ = ["_title", "_url", "_salary", "_description", "_city"]
 
     def __init__(self, title: str, url: str, salary: float, description: str, city: str):
@@ -16,7 +22,7 @@ class Vacancy:
         self._city = self._validate_city(city)
 
     @staticmethod
-    def cast_to_object_list(vacancies_json: str) -> List['Vacancy']:
+    def cast_to_object_list(vacancies_json: str) -> List["Vacancy"]:
         """Создает список объектов Vacancy из JSON-строки"""
         vacancies_data = json.loads(vacancies_json)
         vacancies_list = []
@@ -48,7 +54,13 @@ class Vacancy:
 
     def to_dict(self) -> dict:
         """Преобразует объект Vacancy в словарь."""
-        return {"title": self._title, "url": self._url, "salary": self._salary, "description": self._description, "city": self._city}
+        return {
+            "title": self._title,
+            "url": self._url,
+            "salary": self._salary,
+            "description": self._description,
+            "city": self._city,
+        }
 
     def _validate_title(self, title: str) -> str:
         """Проверяет корректность названия вакансии"""

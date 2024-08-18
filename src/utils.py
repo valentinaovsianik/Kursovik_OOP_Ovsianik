@@ -23,6 +23,7 @@ def filter_vacancies_by_city(vacancies, city):
     city = city.lower()
     return [vacancy for vacancy in vacancies if vacancy.city.lower() == city]
 
+
 def print_vacancies(vacancies):
     """Выводит вакансии в читаемом виде"""
     for vacancy in vacancies:
